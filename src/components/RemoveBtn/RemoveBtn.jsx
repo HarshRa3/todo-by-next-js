@@ -4,9 +4,10 @@ import React from "react";
 import { MdDelete } from "react-icons/md";
 
 const RemoveBtn = ({id}) => {
+  const apiurl=process.env.API_URL
   const router=useRouter()
   const handleDelete = async () => {
-   const res= await fetch(`http://localhost:3000/api/topics?id=${id}`, {
+   const res= await fetch(`${apiurl}api/topics?id=${id}`, {
       method: "DELETE"
     });
     if(res.ok){
