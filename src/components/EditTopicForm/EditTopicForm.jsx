@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const EditTopicForm = ({description,title,id}) => {
+  const apiurl=process.env.API_URL
     const router=useRouter()
     const formik=useFormik({
         initialValues:{
@@ -16,7 +17,7 @@ const EditTopicForm = ({description,title,id}) => {
                   return;
                 }
                 try {
-                  const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
+                  const res = await fetch(`${apiurl}api/topics/${id}`, {
                     method: "PUT",
                     headers: {
                       "Content-Type": "application/json",

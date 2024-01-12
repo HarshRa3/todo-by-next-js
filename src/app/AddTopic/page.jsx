@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 const page = () => {
+  
+  const apiurl=process.env.API_URL
   const router = useRouter();
   const formik = useFormik({
     initialValues: {
@@ -16,7 +18,7 @@ const page = () => {
         return;
       }
       try {
-        const res = await fetch("http://localhost:3000/api/topics", {
+        const res = await fetch(`${apiurl}api/topics`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

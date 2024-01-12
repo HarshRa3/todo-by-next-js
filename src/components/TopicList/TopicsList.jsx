@@ -3,8 +3,9 @@ import RemoveBtn from '../RemoveBtn/RemoveBtn'
 import Link from 'next/link'
 import { FaEdit } from "react-icons/fa";
 const getTopics=async ()=>{
+  const apiurl=process.env.API_URL
 try {
-  const response = await fetch('http://localhost:3000/api/topics',{cache:'no-store'})
+  const response = await fetch(`${apiurl}api/topics`,{cache:'no-store'})
   if(!response.ok){
     throw new Error("Could not fetch topics")
   }
